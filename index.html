@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>airboard</title>
+</head>
+
+<body style="margin:0">
+  <canvas id="canvasElem"></canvas>
+
+  <script>
+    let ctx = canvasElem.getContext('2d');
+    ctx.canvas.width = document.documentElement.clientWidth;
+    ctx.canvas.height = document.documentElement.clientHeight;
+
+    canvasElem.onmousedown = function (e) {
+      ctx.beginPath();
+
+      canvasElem.onmousemove = function (e) {
+        ctx.lineTo(e.clientX, e.clientY);
+        ctx.stroke();
+      };
+    };
+
+    canvasElem.onmouseup = function (e) {
+      canvasElem.onmousemove = null;
+    }
+
+  </script>
+</body>
+
+</html>
